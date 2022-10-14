@@ -60,7 +60,12 @@ color: #061c2d;
 }
 
 .current-temperature {
-font-size: 22px;
+   font-weight: 300;
+  font-size: 25px;
+  cursor: pointer;
+  color: #6206e3;
+  text-decoration: none;
+  cursor: pointer; 
 }
 
 .units {
