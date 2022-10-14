@@ -1,128 +1,94 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App ☀️</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios@1.0.0/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-  <div class="container">
-
-    <div class="weather-container">
-      <div class="clearfix">
-
-
-        <form id="weather__form" class="float-left">
-          <input type="text" id="weather__form-location" placeholder="Enter a city" autocomplete="off" autofocus="on">
-          <input type="submit" value="🔍Search" class="btn btn-primary">
-
-        </form>
-        <button id="weather-refresh" class="float-left btn btn-success">🌐Current Location</button>
-      </div>
-
-
-      <div class="weather-summary">
-        <div class="weather-summary-header">
-          <h1 id="weather-location"></h1>
-          <div id="weather-date" class="weather-detail__text">
-          </div>
-          <div class="weather-detail__text" id="weather-description"></div>
-        </div>
-           <ul>
-              <li>Last updated: <span id="date"></span></li>
-              <li id="description"></li>
-            </ul>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="clearfix">
-              <img class="weather__icon weather__icon--today">
-              <div class="weather-temp weather-temp--today">
-
-              </div>
-              <div <span class="units"
-                    ><a href="#" id="celsius-link" class="active">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a></span
-                  >
-              </div>
+    <div class="container">
+        <div class="weather-app-wrapper">
+            <div class="weather-app">
+                <form class="mb-3" id="search-form">
+                <div class="row">
+                    <div class="col-6">
+                        <input
+                            type="search"
+                            placeholder="Type your city..."
+                            class="form-control"
+                            id="city-input"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div class="col-3">
+                        <input
+                        type="submit"
+                        value="Search 🔍"
+                        class="btn btn-primary w-100 search-button"
+                        id="search-button">
+                    </div>
+                    <div class="col-3">
+                        <input
+                        type="submit"
+                        value="My Location 📍"
+                        class="btn btn-primary w-100 location-button"
+                        id = "location-button">
+                    </div>
+                </div>
+                </form>
+                <h1 id="city">
+                    Sydney
+                </h1>
+                
+                <div class="weather-search">
+                    <div class="row">
+                        <div class="col-4 current-temperature">
+                            <img
+                                src=""
+                                alt=""
+                                id="icon"
+                            >
+                            <span id="temperature">14</span>
+                            <span class="units"
+                            ><a href="#" id="celsius-link" class="active"> °C</a> | <a href="#" id="fahrenheit-link">°F</a></span> 
+                        </div>
+                        <div class="col-4">
+                            <ul class="detailed-weather-information">
+                                <li id="description">
+                                    Mostly sunny
+                                </li>
+                                <li>
+                                    Humidity: <span id="humidity">82</span>%
+                                </li> 
+                                <li>
+                                    Wind: <span id="wind">0</span> km/h
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul>
+                                <li>
+                                    Last updated at
+                                </li>
+                                <li class="current-date" id="date">
+                                    Monday, 07:00
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-forecast" id="weather-forecast">
+                </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="weather-detail__text">
-              💧Precipitation: <span id="precipitation-probality"></span>
-            </div>
-            <div class="weather-detail__text">
-              💨Wind: <span id="wind-speed"></span>
-            </div>
-          </div>
+            <p>
+               <a href="https://github.com/hannahgeier/weather-app" target="_blank">Open source code</a> by Hannah Geier
+            </p>
         </div>
-      </div>
-      <div class="days clearfix">
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-        <div class="day__block">
-          <div class="day__block-date"></div>
-          <img class="day__block-image">
-          <div class="day__block-temps">
-            <span class="day__block-temp"></span>
-          </div>
-        </div>
-      </div>
     </div>
-    <small> <a href="https://github.com/MarianaMarkovych/weather-app" target="_blank">Open-source code</a>, by Mariana Markovych</small>
-  </div>
-</div>
-<script src="script.js"></script>
+    <script src="src/app.js"></script>
 </body>
 </html>
