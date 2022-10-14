@@ -62,6 +62,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
 function refreshWeather(queryParams) {
   let apiParams = "appid=" + apiKey + "&units=metric";
   axios
