@@ -72,7 +72,7 @@ font-weight: bold;
 }
 
 .active {
-color: blue;
+color: red;
 cursor: default;
 text-decoration: none;
 }
