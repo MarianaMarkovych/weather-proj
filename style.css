@@ -66,6 +66,8 @@ color: #061c2d;
   color: #6206e3;
   text-decoration: none;
   cursor: pointer; 
+ line-height: 1.5em;
+}
 }
 
 .units {
