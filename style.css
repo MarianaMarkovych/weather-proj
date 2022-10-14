@@ -60,12 +60,12 @@ color: #061c2d;
 }
 
 .current-temperature {
-   font-weight: 300;
-  font-size: 25px;
-  cursor: pointer;
-  color: #6206e3;
-  text-decoration: none;
-  cursor: pointer; 
+ font-weight: 300;
+ font-size: 25px;
+ cursor: pointer;
+ color: #6206e3;
+ text-decoration: none;
+ cursor: pointer; 
  line-height: 1.5em;
 }
 }
@@ -82,9 +82,9 @@ font-weight: bold;
 color: red;
 cursor: default;
 text-decoration: none;
- font-size: 30px;
-  font-weight: 500;
-  color: #2a0163;  
+font-size: 25x;
+font-weight: 400;
+color: #2a0163;  
 }
 
 .weather-search {
