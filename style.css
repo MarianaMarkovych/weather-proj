@@ -79,11 +79,10 @@ font-weight: bold;
 }
 
 .active {
-color: red;
 cursor: default;
 text-decoration: none;
-font-size: 25x;
-font-weight: 300;
+font-size: 30x;
+font-weight: 350;
 color: #2a0163;  
 }
 
