@@ -33,7 +33,10 @@
           </div>
           <div class="weather-detail__text" id="weather-description"></div>
         </div>
-
+           <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
         <div class="row">
           <div class="col-md-6">
             <div class="clearfix">
@@ -41,8 +44,10 @@
               <div class="weather-temp weather-temp--today">
 
               </div>
-              <div class="weather-unit__text weather-unit__text--today">
-                °C
+              <div <span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
               </div>
             </div>
           </div>
