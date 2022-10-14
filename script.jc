@@ -33,6 +33,7 @@ function friendlyDate(date) {
 
   return day + " " + hours + ":" + minutes;
 }
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -61,7 +62,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 function refreshWeather(queryParams) {
   let apiParams = "appid=" + apiKey + "&units=metric";
   axios
