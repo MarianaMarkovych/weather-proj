@@ -141,4 +141,4 @@ form.addEventListener("submit", handleSubmit);
 let button = document.querySelector("#location-button");
 button.addEventListener("click", getCurrentPosition);
 
-searchCity("Kiev");
+searchCity("Sydney");
